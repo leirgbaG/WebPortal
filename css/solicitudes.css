@@ -1,0 +1,287 @@
+section.Cuerpo{
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+#solicitar{
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #0db450;
+    color: #FFF;
+    padding: 10px;
+    box-shadow: 2px 2px 5px #0309;
+    transition: all	ease-in-out 0.2s;
+    cursor: pointer;
+
+    position: sticky;
+    top: 20px;
+    z-index: 3;
+}
+    #solicitar:hover{
+        background-color: #0a923d;
+    }
+
+.noSolicitudes{
+    position: absolute;
+    bottom: 30%;
+    color: #030;
+    text-align: center;
+    text-wrap: balanced;
+    cursor: default;
+}
+
+
+#outModalSolicitar{
+    position: fixed;
+    inset: 0;
+    background-color: #0005;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 0.2s;
+    z-index: 5;
+    opacity: 0;
+    display: none;
+}
+#modalSolicitar{
+    background-color: #EFE;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: min(80%, 670px);
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    align-self: center;
+    justify-self: center;
+    transition: all ease-in-out 0.2s;
+    z-index: 6;
+    opacity: 0;
+    display: none;
+}
+    #formSolicitud{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        height: fit-content;
+        transition: all ease-in-out 0.2s;
+        gap: 20px;
+    }
+        #formSolicitud > h1{
+            text-align: left;
+            box-sizing: border-box;
+            font-size: 25px;
+            width: 100%;
+            position: relative;
+        }
+            #formSolicitud > h1::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: linear-gradient(to right, #0000, #060A, #0000);
+            }
+        
+        #formSolicitud > .texto{
+            border-radius: 5px;
+            border: 1px solid #030;
+            padding: 4px;
+            box-sizing: content-box;
+            width: 100%;
+            resize: none;
+        }
+        #enviar{
+            border-radius: 5px;
+            background-color: #0db450;
+            transition: all	ease-in-out 0.2s;
+            box-shadow: 1px 1px 5px #0309;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #FFF;
+            padding: 7px 25px;
+            border: none;
+        }
+            #enviar:hover{
+                background-color: #0a923d;
+            }
+
+.solicitud{
+    cursor: pointer;
+}
+.solicitud, .modal.info_peticion{
+    margin-top: min(30px, 5%);
+    background-color: #FFF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #0309;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid #FFF;
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    width: min(570px, 100%);
+}
+    .solicitud:hover{
+        border-color: #595;
+    }
+.solicitud.approved, .modal.info_peticion.approved{
+    background-color: #deffe9;
+    border-color: #0db450;
+}
+    .solicitud.approved:hover{
+        background-color: #F9FFF9;
+        border: 1px solid #0a8f40;
+    }
+.solicitud.rejected, .modal.info_peticion.rejected{
+    background-color: #FFEBDD;
+    border-color: #ce2424;
+}
+    .solicitud.rejected:hover{
+        background-color: #FFF;
+        border-color: #a41e1e;
+    }
+.solicitud.vue, .modal.info_peticion.vue{
+    background-color: #ffffff;
+}
+    .modal.info_peticion > .modal-content > .opciones{
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        margin: 15px 0;
+    }
+        .modal.info_peticion > .modal-content > .opciones > *{
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            gap: 10px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: #FFF;
+            font-weight: bold;
+            cursor: pointer;
+
+            transition: background-color 0.1s ease-in-out;
+        }
+            .modal.info_peticion > .modal-content > .opciones > * > img{
+                filter: invert(1);
+            }
+            .modal.info_peticion > .modal-content > .opciones > * > *{
+                cursor: pointer;
+            }
+            .modal.info_peticion > .modal-content > .opciones > .a, #enviar{
+                background-color: #0db450;
+            }
+                .modal.info_peticion > .modal-content > .opciones > .a:hover, #enviar:hover{
+                    background-color: #0a8f40;
+                }
+            .modal.info_peticion > .modal-content > .opciones > .r, #enviar.rechazo{
+                background-color: #ce2424;
+            }
+                .modal.info_peticion > .modal-content > .opciones > .r:hover, #enviar:hover.rechazo{
+                    background-color: #a41e1e;
+                }
+
+    .solicitud > h2, .modal.info_peticion > .modal-content > h2{ /* Título */
+        text-align: center;
+        font-size: 25px;
+        text-wrap: balance;
+    }
+    .solicitud > h3, .modal.info_peticion > .modal-content > h3{ /* Estado */
+        text-align: right;
+        font-size: 15px;
+        color: #020;
+        text-shadow: 0 0 2px #0875;
+    }
+        .solicitud.approved > h3, .modal.info_peticion.approved > .modal-content > h3{ /* Estado Aprobado */
+            color: #060;
+            text-shadow: 0 0 5px #0A59
+        }
+        .solicitud.rejected > h3, .modal.info_peticion.rejected > .modal-content > h3{ /* Estado Rechazado */
+            color: #700;
+            text-shadow: 0 0 5px #9039;
+        }
+    .solicitud > p, .modal.info_peticion > .modal-content > p{ /* Descripción */
+        text-align: justify;
+        max-height: 150px;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+    }
+    .solicitud > h6, .modal.info_peticion > .modal-content > h6{ /* Info */
+        font-size: 12px;
+        color: #555;
+        margin-top: 5px;
+    }
+
+.outModal.info_peticion{
+    position: fixed;
+    inset: 0;
+    display: none;
+    opacity: 0;
+    background-color: #0005;
+    transition: all 0.2s ease-in-out;
+    z-index: 5;
+}
+.modal.info_peticion{
+    position: fixed;
+    height: fit-content;
+    inset: 0;
+    margin: auto;
+    opacity: 0;
+    display: none;
+    z-index: 6;
+    width: min(80%, 670px);
+}
+.modal.info_peticion > .modal-content > p{
+    box-shadow: inset 0 0 5px #0003;
+    border-radius: 3px;
+    padding: 8px;
+    overflow-y: auto;
+    line-clamp: 5;
+    -webkit-line-clamp: 5;
+}
+
+@media only screen and (max-width: 768px){
+    .solicitud > h2,
+    .modal.info_peticion > .modal-content h2{
+        font-size: 15px;
+    }
+    .solicitud > h3,
+    .modal.info_peticion > .modal-content h3{
+        font-size: 12px;
+    }
+    .modal.info_peticion > .modal-content h4{
+        font-size: 12px;
+    }
+    .solicitud > h6,
+    .modal.info_peticion > .modal-content h6{
+        font-size: 10px;
+    }
+    .solicitud > p,
+    .modal.info_peticion > .modal-content p{
+        font-size: 12px;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+
+    div.a .opcIcon, div.r .opcIcon{
+        height: auto;
+        width: 20px;
+    }
+
+    #formSolicitud h1{
+        font-size: 15px;
+    }
+    #formSolicitud #enviar{
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    #formSolicitud #mensaje{
+        font-size: 12px;
+        height: 70px;
+    }
+}

@@ -1,0 +1,228 @@
+.Cuerpo{
+    display: flex;
+    justify-content: center;
+}
+#generador_reportes{
+    margin: auto;
+    background-color: #FFF;
+    box-shadow: 3px 3px 10px #0509;
+    padding: 10px;
+    border-radius: 5px;
+    width: min(550px, 100%);
+    height: fit-content;
+    transition: all 0.4s ease-out;
+}
+
+#generador_reportes h1{
+    font-size: 20px;
+    color: #0db450;
+}
+#generador_reportes h2{
+    font-size: 18px;
+    color: #0a8e3e;
+}
+.fieldset-generar-reporte{
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #0a8e3e99;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    row-gap: 10px;
+    margin-bottom: 10px;
+}
+.fieldset-generar-reporte *{
+    transition: all 0.4s ease-out;
+}
+.fieldset-generar-reporte.extra{
+    transition: all 0.4s ease-out;
+    height: 0;
+    padding: 0;
+}
+.fieldset-generar-reporte.extra *{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+.fieldset-generar-reporte h1{
+    width: 100%;
+}
+.fieldset-generar-reporte h2{
+    width: 100%;
+    margin-left: 10px;
+}
+
+.seleccion {
+    cursor: pointer;
+}
+
+#seleccionar-tipo-reporte label{
+    width: 40%;
+    border-radius: 4px;
+    padding: 5px 20px;
+    background-color: #0db450;
+    color: #FFF;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+}
+    #seleccionar-tipo-reporte label:hover{
+        background-color: #0a8f40;
+    }
+
+
+#seleccion-tiempo{
+    width: 40%;
+    height: fit-content;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #0db450;
+    margin: auto;
+}
+#seleccion-fecha-personalizada{
+    width: 50%;
+    padding-left: 10%;
+}
+#seleccion-fecha-personalizada input{
+    font-size: 15px;
+    border-radius: 5px;
+    border: 1px solid #0db450;
+    margin: auto;
+    
+}
+
+
+#seleccion-usuario{
+    width: 50%;
+    padding: 5px;
+    height: 200px;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+#seleccion-usuario > label{
+    padding: 5px 20px 5px 10px;
+    border-radius: 5px;
+    background-color: #0db450;
+    transition: all ease-in-out 0.2s;
+    width: 100%;
+    height: fit-content;
+}
+#seleccion-usuario > label.label-seleccionable:hover{
+    background-color: #0a8f40;
+}
+#seleccion-usuario span{
+    font-size: 16px;
+    color: #FFF;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#filtro-usuario{
+    width: 40%;
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+    margin: auto;
+}
+#filtro-usuario label{
+    font-size: 15px;
+    color: #FFF;
+    background-color: #0db450;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+#filtro-usuario label:hover{
+    background: #0a8f40;
+}
+
+#reporte-documento > div{
+    box-shadow: 0 0 5px #0509;
+    padding: 7px;
+    border-radius: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+}
+#seleccion-tipo-autores, #seleccion-tipo-kw{
+    width: 35%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+}
+
+#reporte-documento > div label{
+    border-radius: 5px;
+    background-color: #0db450;
+    transition: all 0.2s ease-in-out;
+    padding: 5px 10px;
+    color: #FFF;
+    width: 100%;
+    font-weight: bold;
+    margin: auto;
+}
+#reporte-documento > div label:hover{
+    background-color: #0a8f40;
+}
+#reporte-documento > div span{
+    font-size: 16px;
+}
+#seleccion-autor-personalizado, #seleccion-kw-personalizado{
+    width: 60%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.blocked{
+    opacity: 0.3;
+}
+
+#generar-el-reporte{
+    padding: 5px 25px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    background-color: #0db450;
+    color: #FFF;
+    font-weight: bold;
+    opacity: 0.3;
+}
+
+#generar-el-reporte.debloqueo-generar{
+    opacity: 1;
+}
+#generar-el-reporte.debloqueo-generar:hover{
+    background-color: #0a8f40;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.hidden{
+    opacity: 0;
+}
+/*
+**
+**  Estilo Celular
+**
+*/
+
+@media only screen and (max-width: 768px){
+    #generador_reportes h1{
+        font-size: 15px;
+    }
+    #seleccionar-tipo-reporte label{
+        width: 60%;
+    }
+    label.hidden{
+        display: none;
+    }
+}

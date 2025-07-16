@@ -1,0 +1,56 @@
+html{
+    background-color: #065d29;
+}
+
+main{
+    position: fixed;
+    margin: auto;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mensaje{
+    width: min(80%, 550px);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #0009;
+}
+
+.mensaje > h1{
+    color: #0db450;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+p{
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-wrap: pretty;
+}
+
+p.extra{
+    margin-left: 15px;
+}
+
+
+.salir_container{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.salir{
+    color: #FFF;
+    background-color: #0db450;
+    padding: 5px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.2s ease-in-out;
+}
+.salir:hover{
+    background-color: #0a8f40;
+}

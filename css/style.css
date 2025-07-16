@@ -1,0 +1,375 @@
+@font-face{
+    font-family: "Nunito";
+    src: url(../webfonts/Nunito-VariableFont_wght.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Nunito-Italic";
+    src: url(../webfonts/Nunito-Italic-VariableFont_wght.ttf) format(truetype);
+    font-style: italic;
+    font-weight: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", Arial, Cambria;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100dvh; 
+    background-color: #FFF;
+    width: 100%;
+}
+body{
+    height: 100%;
+    display: flex;
+    width: 100%;
+}
+
+#principalContainer{
+    width: 100%;
+    background-color: #FFF;
+    margin: 5px 20px;
+    display: grid;
+    grid-template-areas: "header header" 
+                         "cuerpo nav"
+                         "cuerpo opc";
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 0.8fr 1fr 3fr;
+    gap: 15px;
+}
+
+#Presentacion{
+    grid-area: header;
+    border-radius: 14px;
+    padding: 10px;
+    padding-bottom: 25px;
+    background-color: #85f5b3;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: relative;
+}
+    #Presentacion > * > .logo{
+        max-width: 120px;
+    }
+    #Titulo{
+        text-align: center;
+        font-size: 40px;
+        text-wrap: balance;
+        position: relative;
+        cursor: default;
+    }
+    #InfoUser, #InfoUser *{
+        font-size: 0.75rem;
+    }
+    #InfoUser{
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        color: #002500;
+        cursor: default;
+        
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+    #LoginButton{
+        padding: 2px 8px;
+        transition: all 0.3s ease-out;
+        color: #000;
+        border-radius: 5px;
+    }
+        #LoginButton:hover{
+            background-color: #76d69e;
+        }
+    #cerrarSesion{
+        padding: 5px;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        margin-left: 5px;
+    }
+        #cerrarSesion > img{
+            height: auto;
+            width: 18px;
+        }
+        #cerrarSesion:hover{
+            background-color: #7ae2a6;
+        }
+    #MasInfo{
+        transition: all 0.2s ease-in-out;
+        padding: 5px;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+        #MasInfo:hover{
+            color: #004522;
+            background-color: #7ae2a6;
+        }
+        #MasInfo > *{
+            width: auto;
+            height: 18px;
+        }
+
+
+.Cuerpo{
+    grid-area: cuerpo;
+    border-radius: 14px;
+    padding: 10px;
+    background-color: #CCFFCF;
+
+    overflow-y: auto;
+    scrollbar-color: #47eb99 #0000;
+    scrollbar-width: thin;
+
+    box-shadow: 3px 3px 5px #0000001a inset;
+
+}
+
+
+.post{
+    grid-area: opc;
+    border-radius: 14px;
+    padding: 15px;
+    background-color: #85f5b3;
+
+    overflow-y: auto;
+    scrollbar-color: #3cc7a9 #0000;
+    scrollbar-width: thin;
+}
+    .post > .Opcion{
+        border-left: 2px dotted #0b3f3c;
+        border-right: 2px dotted #0000;
+        margin-bottom: 6px;
+    }
+    .post > .Opcion:hover{
+        border-right: 2px dotted #0b3f3c;
+    }
+#Navegacion{
+    grid-area: nav;
+    border-radius: 14px;
+    padding: 15px;
+    background-color: #85f5b3;
+
+    display: flex;
+    flex-flow: column-reverse;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+    .Opcion{
+        display: flex;
+        font-size: 25px;
+        align-items: center;
+        gap: 10px;
+
+        text-decoration: none;
+        color: #002500;
+        transition: all 0.2s ease-in-out;
+        padding: 5px;
+        padding-left: 10px;
+        border-radius: 7px;
+        cursor: pointer;
+    }
+        .Opcion:hover{
+            color: #004522;
+            background-color: #7ae2a6;
+        }
+        .opcIcon{
+            height: auto;
+            width: 30px;
+        }
+        .adaces{
+            width: 24px;
+        }
+
+.paginacion{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin: 5px 0;
+}
+.paginacion > *{
+    padding: 5px 10px;
+    color: #0db450;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 2px 3px 3px #0509;
+    font-weight: bold;
+    font-size: 20px;
+}
+.paginacion > .seleccion_pag{
+    color: #FFF;
+    background-color: #0db450;
+    cursor: default;
+}
+.paginacion > .extremo_pag, .paginacion > .opcion_pag{
+    background-color: #FFF;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.paginacion > .extremo_pag:hover, .paginacion > .opcion_pag:hover{
+    background-color: #f0f0f0;
+    color: #17d868
+}
+
+#outModalSalir{
+    position: fixed;
+    inset: 0;
+    background-color: #0006;
+    z-index: 5;
+    display: none;
+    
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+#modalSalir{
+    position: fixed;
+    inset: 0;
+    height: fit-content;
+    width: min(530px, 80%);
+    margin: auto;
+    z-index: 6;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    opacity: 0;
+
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    transition: all 0.2s ease-in-out;
+}
+#modalSalir > h2{
+    width: 100%;
+    color: #020;
+    margin-bottom: 20px;
+}
+#modalSalir > .boton{
+    padding: 5px 10px;
+    width: 45%;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+}
+#modalSalir > #quedarse_salir{
+    background-color: #0db450;
+}
+    #modalSalir > #quedarse_salir:hover{
+        background-color: #0a8f40;
+    }
+#modalSalir > #salir_salir{
+    background-color: #b60000;
+}
+    #modalSalir > #salir_salir:hover{
+        background-color: #290000;
+    }
+/* 
+**  
+**  ESTILO CELULAR 
+**
+*/
+@media only screen and (max-width: 768px){
+    *{
+        font-size: 15px;
+    }
+    .logo{
+        height: auto;
+        width: 45px;
+    }
+    #Titulo{
+        font-size: 17px;
+    }
+    #MasInfo > img{
+        width: 13px;
+        height: auto;
+    }
+    #InfoUser{
+        font-size: 10px;
+        bottom: 0;
+    }
+    .adaces{
+        height: auto;
+        width: 17px;
+    }
+    #cerrarSesion > img{
+        width: 10px;
+        height: auto;
+    }
+    #cerrarSesion{
+        padding: 2px;
+    }
+
+    #principalContainer{
+        grid-template-areas:"header" 
+                            "nav"
+                            "cuerpo"
+                            "opc";
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 1fr min-content;
+        gap: 0;
+        margin: 10px 10px;
+    }
+
+    #Presentacion{
+        border-radius: 14px 14px 0 0;
+    }
+    #Navegacion{
+        border-radius: 0 0 14px 14px;
+        flex-flow: row-reverse nowrap;
+        gap: 0;
+        height: 50px;
+        justify-content: space-evenly;
+        margin-bottom: 5px;
+        border-top: 2px solid #cEc;
+    }
+        #Navegacion > .Opcion{
+            border-radius: 50px;
+            padding: 5px;
+        }
+        .Opcion p{
+            display: none;
+        }
+        #Navegacion .opcIcon, .post .opcIcon{
+            width: 25px;
+            height: auto;
+            color: #000;
+        }
+
+    .post{
+        overflow-y: visible;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        padding: 4px;
+        margin-top: 5px;
+    }
+        .post > .Opcion{
+            padding: 5px;
+            margin-bottom: 0;
+            border-radius: 50px;
+        }
+    
+    #modalSalir > .boton{
+        font-size: 13px;
+    }
+    #modalSalir > #salir_salir{
+        font-size: 11px;
+    }
+
+    .paginacion{
+        margin: 0 0 10px;
+    }
+    .paginacion > *{
+        font-size: 15px;
+    }
+}

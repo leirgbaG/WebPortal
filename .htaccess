@@ -1,0 +1,53 @@
+php_value upload_max_filesize 1024M
+php_value post_max_size 1024M
+
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule     ^aboutUs$                   aboutUs.php                     [L]
+
+RewriteRule     ^cuenta.(\w{3,})$           cuenta.php?error=$1             [L]
+RewriteRule     ^cuenta$                    cuenta.php                      [L]
+
+RewriteRule     ^usuarios$                  gestionarUsuarios.php?pag=1     [L]
+RewriteRule     ^usuarios-(\d+)$            gestionarUsuarios.php?pag=$1    [L]
+RewriteRule     ^usuario-(\w{3,})$          modificarCuenta.php?user=$1     [L]
+RewriteRule     ^eliminarUsuario-(\d+)$     controladores/borrarCuenta.php?user=$1   [L]
+RewriteRule     ^bloquearUsuario-(\d+)-(\d)$    controladores/bloquearCuenta.php?user=$1&tipo=$2  [L]
+
+RewriteRule     ^acciones$                  acciones.php?pag=1              [L]
+RewriteRule     ^acciones-(\d+)$            acciones.php?pag=$1             [L]
+
+
+RewriteRule     ^logout$                    controladores/logout.php        [L]
+RewriteRule     ^login$                     login.php                       [L]
+RewriteRule     ^login.(\w{3,})$            login.php?error=$1              [L]
+RewriteRule     ^sign_in                    registro.php                    [L]
+RewriteRule     ^blocked$                   bloqueo.php                     [L]
+
+RewriteRule     ^noticia$                   postNews.php                    [L]
+RewriteRule     ^noticia-((\w-?)+)$         postNews.php?error=$1           [L]
+
+RewriteRule     ^editNew-(\d+)$             editNew.php?new=$1              [L]
+RewriteRule     ^approveNews$               aprobarNoticia.php              [L]
+
+RewriteRule     ^comentarios-(\d+)-(\d+)$   comentarios.php?new=$1&pag=$2   [L]
+
+RewriteRule     ^periódico$                 index.php?pag=1                 [L]
+RewriteRule     ^periódico-(\d+)$           index.php?pag=$1                [L]
+
+RewriteRule     ^resumen-(\w{3,})$          resumen.php?tipo=$1             [L]
+RewriteRule     ^reporte$                   reportes.php                    [L]
+RewriteRule     ^reporte-(\w+)$             reportes.php?error=$1           [L]
+
+RewriteRule     ^biblioteca$                biblioteca.php?pag=1            [L]
+RewriteRule     ^biblioteca-(\d+)$          biblioteca.php?pag=$1           [L]
+RewriteRule     ^eliminarLibro-(\d+)$       controladores/borrarLibro.php?id_doc=$1 [L]
+
+RewriteRule     ^solicitudes$               solicitudes.php                 [L]
+RewriteRule     ^solicitudes-(\w{3,})$      solicitudes.php?error=$1        [L]
+RewriteRule     ^postDoc$                   publicarLibro.php               [L]
+RewriteRule     ^postDoc-((\w-?)+)$         publicarLibro.php?error=$1      [L]
+RewriteRule     ^libro-(\d+)$               publicarLibro.php?id_doc=$1     [L]
+RewriteRule     ^libro-(\d+)-((\w-?)+)$     publicarLibro.php?id_doc=$1&error=$2    [L]
+RewriteRule     ^deleteBook(\d+)$           controladores/borrarLibro.php?id_doc=$1 [L]

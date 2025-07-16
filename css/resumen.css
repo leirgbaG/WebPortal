@@ -1,0 +1,147 @@
+*{
+    cursor: default;
+}
+.Cuerpo{
+    display: block;
+    overflow-x: auto;
+}
+
+.resumen{
+    background-color: #FBFFFB;
+    min-width: fit-content;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px #0008;
+    padding: 10px;
+}
+
+.resumen > h1{
+    font-size: 25px;
+    color: #020;
+}
+.datatable_opciones{
+    display: flex;
+    flex-flow: row nowrap;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.lupa.dt_opc{
+    height: auto;
+    width: 20px;
+}
+
+.datatable_opciones > *{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #E2EDE2;
+    border-radius: 8px;
+    border: 2px solid #C9D4C9;
+    padding: 5px;
+}
+    #buscar{
+        padding: 5px 10px;
+        margin-left: 5px;
+        border-radius: 5px;
+        outline: none;
+        border: 1px solid #C9D4C9;
+    }
+    .extrem{
+        height: 40px;
+        width: 70px;
+    }
+    .num_pag{
+        height: 40px;
+        width: 40px;
+    }
+    #pag{
+        min-width: 50px;
+    }
+
+
+.dt_row_opc{
+    height: auto;
+    width: 30px;
+    transition: all 0.3s ease-in-out;
+}
+    .ojo:hover{
+        filter: invert(40%) sepia(100%) saturate(4000%) hue-rotate(200deg) brightness(70%);
+    }
+    .eliminar:hover{
+        filter: invert(25%) sepia(100%) saturate(4000%) hue-rotate(310deg) brightness(50%);
+    }
+    .editar:hover{
+        filter: invert(40%) sepia(100%) saturate(4000%) hue-rotate(90deg);
+    }
+    .descarga:hover{
+        filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(90deg);
+    }
+
+a{
+    text-decoration: none;
+}
+
+
+table{
+    border-collapse: collapse;
+    margin: 5px 0;
+}
+th{
+    background-color: #92e092;
+}
+tr:nth-child(even){
+    background-color: #dff7df;
+    background: linear-gradient(to left, #dff7df 50%,#cdebcd 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: all 0.2s ease-in-out;
+    border-top: 1px solid #dff7df;
+    border-bottom: 1px solid #dff7df;
+}
+tr:nth-child(odd){
+    background-color: #efffef;
+    background: linear-gradient(to left, #efffef 50%,#e1f0f1 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    transition: all 0.2s ease-in-out;
+    border-top: 1px solid #efffef;
+    border-bottom: 1px solid #efffef;
+}
+.boton{
+    width: 20px;
+    height: 20px;
+    background-color: #020;
+}
+
+.seeMore{
+    color: #059;
+    transition: color 0.1s ease-in-out;
+    cursor: pointer;
+}
+    .seeMore:hover{
+        color: #026;
+    }
+
+.outModal{
+    position: fixed;
+    inset: 0;
+    background-color: #0005;
+    display: none;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+
+    max-width: 800px;
+    max-height: fit-content;
+}
+.show{
+    opacity: 1;
+}

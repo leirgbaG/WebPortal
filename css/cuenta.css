@@ -1,0 +1,202 @@
+.informacionUsuario{
+    background-color: #f3fffc;
+    border-radius: 7px;
+    border: 3px solid #dde9e6;
+    box-shadow: 5px 5px 10px #999;
+
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+    .informacionUsuario > h2{
+        font-size: 30px;
+    }
+    .informacionUsuario > h6{
+        margin-top: -5px;
+        margin-left: 20px;
+        font-size: 19px;
+        color: #555;
+    }
+    .informacionUsuario > h5{
+        margin-left: 20px;
+        color: #1F1F44;
+    }
+    .informacionUsuario > p{
+        margin-left: 20px;
+    }
+
+    .informacionUsuario > .opciones{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+        .informacionUsuario > .opciones > .boton{
+            background-color: #0db450;
+            color: #fcfcfc;
+            border-radius: 7px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.15s ease-in-out;
+        }
+            .informacionUsuario > .opciones > .boton:hover{
+                background-color: #0a8f40;
+            }
+
+        .informacionUsuario > .opciones > .eliminar{
+            background-color: #b60000;
+        }
+            .informacionUsuario > .opciones > .eliminar:hover{
+                background-color: #290000;
+            }
+
+.caja{
+    display: grid;
+    grid-template-areas: "personal cuenta";
+}
+
+    .personal{
+        grid-area: personal;
+    }
+    .cuenta{
+        grid-area: cuenta;
+    }
+.modificarDatos{
+    background-color: #f3fffc;
+    border-radius: 7px;
+    border: 3px solid #dde9e6;
+    box-shadow: 5px 5px 10px #999;
+    justify-self: center;
+
+    padding: 20px 10px;
+    width: 90%;
+    margin: 20px 0;
+    align-self: center;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    align-items: center;
+}
+    .modificarDatos > *, .modificarDatos > fieldset > label {
+        width: 95%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .modificarDatos > fieldset{
+        align-items: center;
+        padding: 10px 10px 20px;
+        border-radius: 14px;
+        border: 1px solid #B0DED0;
+    }
+    .input{
+        width: 95%;
+        padding: 5px;
+        font-size: 20px;
+        border-radius: 10px;
+        border: 1px solid #009266;
+        align-self: center;
+    }
+    .boton{
+        
+        border-radius: 10px;
+        border: 1px solid;
+        padding: 7px;
+        background-color: #00c288;
+        color: #f3fffc;
+        transition: background-color 0.15s ease-in-out;
+    }
+        .boton:hover{
+            background-color: #009266;
+        }
+
+
+#outModalCuenta{
+    position: fixed;
+    inset: 0;
+    background-color: #0006;
+    display: none;
+    z-index: 2;
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+}
+#modalCuenta{
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    height: fit-content;
+    width: min(530px, 80%);
+    padding: 10px;
+    z-index: 3;
+    background-color: #fff;
+    border-radius: 10px;
+    display: none;
+    transition: all 0.2s ease-in-out;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    opacity: 0;
+}
+#modalCuenta > h2{
+    width: 100%;
+    margin-bottom: 20px;
+}
+#modalCuenta > .boton_modal{
+    color: #FFF;
+    padding: 5px 25px;
+    border-radius: 5px;
+    width: 40%;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+#modalCuenta > #aceptar_Modalcuenta{
+    background-color: #b60000;
+}
+    #modalCuenta > #aceptar_Modalcuenta:hover{
+        background-color: #290000;
+    }
+
+#modalCuenta > #cancelar_Modalcuenta{
+    background-color: #0db450;
+}
+    #modalCuenta > #cancelar_Modalcuenta:hover{
+        background-color: #0a8f40;
+    }
+/*
+**
+**  Estilo Celular
+**
+*/
+@media only screen and (max-width: 907px){
+    label > h1{
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .informacionUsuario > h2{
+        font-size: 20px;
+    }
+    .informacionUsuario > h6{
+        font-size: 12px;
+    }
+    .informacionUsuario > h5,
+    .informacionUsuario > p{
+        font-size: 15px;
+    }
+
+    .informacionUsuario > .opciones > *{
+        font-size: 15px;
+        width: 40%;
+    }
+
+    .caja{
+        display: flex;
+        flex-flow: column;
+        justify-content: start;
+    }
+}

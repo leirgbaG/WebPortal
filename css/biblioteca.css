@@ -1,0 +1,438 @@
+.Cuerpo{
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+    align-items: center;
+}
+
+.buscador{
+    align-self: center;
+    padding: 10px 18px 20px;
+    border-radius: 50px;
+    background-color: #4dcf83;
+    max-height: 70px;
+    position: sticky;
+    top: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 50px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 2px 2px 10px #202020;
+    z-index: 1;
+    width: min(95%, 370px);
+}
+    .buscador > .search{
+        width: 100%;
+        margin-left: 30px;
+        opacity: 1;
+    }
+
+.extra_searchers{
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    display: flex;
+    gap: 10px;
+    flex-flow: row nowrap;
+}
+.extra_search{
+    font-size: 12px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+#label_buscar{
+    width: 1px;
+    height: 1px;
+}
+.lupa{
+    position: absolute;
+    top: 20px;
+    left: 21px;
+    color: #030;
+    height: auto;
+    width: 25px;
+    filter: invert(15%);
+}
+.lupa:hover{
+    filter: none;
+}
+
+.search{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    background-color: #deffec;
+    font-size: 16px;
+
+}
+    .search::placeholder{
+        font-size: 15px;
+    }
+
+
+
+.estante{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    align-self: center;
+}
+.libro{
+    background-color: #FBFFFB;
+    box-sizing: border-box;
+    width: max(45%, 415px);
+    min-height: 310px;
+    max-height: 310px;
+    border-radius: 7px;
+    margin: 20px 10px;
+    box-shadow: 5px 4px 10px #003a18;
+    position: relative;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+    .libro > h3{
+        font-size: 0.85em;
+        text-align: center;
+        text-wrap: balance;
+        max-height: 95px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        margin-bottom: 10px;
+    }
+    .extraLibro{
+        display: grid;
+        width: 100%;
+    }
+    .libro h4, .libro h5{ 
+        color: #232;
+        text-align: right;
+        font-size: 0.7em;
+        max-width: 60%;
+        justify-self: end;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+        .libro > h4{
+            color: #232A;
+        }
+    .libro > p{
+        overflow-y: auto;
+        font-size: 0.7em;
+        margin-bottom: 5px;
+        max-height: 115px;
+        overflow: hidden;
+        margin-left: -8px;
+        padding-left: 8px;
+        box-sizing: border-box;
+        border-left: 2px solid;
+        border-image: linear-gradient(to bottom, #FBFFFB, #06c4065e, #06c4065e, #FBFFFB) 1;
+    }
+    .libro > h6{
+        color: #232;
+        text-align: left;
+        position: absolute;
+        bottom: 8px;
+        left: 12px;
+        max-width: 80%;
+        height: 35px;
+        overflow: hidden;
+        padding: 5px;
+    }
+        .kw{
+            align-self: center;
+            box-sizing: border-box;
+            margin-right: 5px;
+            font-size: 0.5em;
+            padding: 1px 5px;
+            box-shadow: 0 0 5px #63f7a1;
+            border-radius: 5px;
+        }
+
+    .libro:hover{
+        transform: translateY(-2%);
+        box-shadow: 5px 15px 12px #003a18;
+    }
+
+
+    .back_libro{
+        position: fixed;
+        inset: 0;
+        background-color: #0005;
+        z-index: 3;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        transition: all ease 0.5s;
+        opacity: 0;
+    }
+    .informacion_libro{
+        background-color: #deffec;
+        transition: all ease 0.2s;
+        position: fixed;
+        inset: 0;
+        margin: auto;
+        
+        aspect-ratio: 8/5;
+        height: auto;
+        width: min(800px, 85%);
+        border-radius: 20px;
+        padding: 20px;
+        z-index: 4;
+        opacity: 0;
+        display: none;
+        grid-template-areas: "title title"
+                             "clasf corps"
+                             "autor corps"
+                             "opcs  corps"
+                             "kwrds corps"
+                             "kwrds boton";
+        gap: 10px;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-rows: 1fr 1fr 2fr 0.8fr 1fr 1fr;
+    }
+    .show{
+        opacity: 1;
+    }
+    .informacion_libro, .informacion_libro *{
+        transition: all cubic-bezier(0.64,-0.23, 0.52, 1.33) 0.5s;
+        cursor: default;
+        box-sizing: border-box;
+    }
+        .informacion_libro > h1{
+            text-align: center;
+            font-size: 18px;
+
+            grid-area: title;
+        }
+        .informacion_libro > h2{
+            font-size: 13px;
+            color: #000B;
+
+            margin: 0 5px 0 0;
+            grid-area: autor;
+        }
+        .informacion_libro > h3{
+            color: #003a18;
+            font-size: 15px;
+            margin: auto 0;
+
+            grid-area: clasf;
+        }
+        .informacion_libro > p{
+            grid-area: corps;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            padding: 5px 10px;
+            border-radius: 10px;
+            box-shadow: inset 0 8px 10px -6px #00000042,
+                        inset 0 -8px 10px -6px #00000042;
+            font-size: 15px;
+        }
+        .informacion_libro > div{
+            grid-area: opcs;
+            display: flex;
+            justify-content: space-evenly;
+        }
+            .foto-opc{
+                width: 30px;
+                height: 30px;
+            }
+            .borrar, .editar{
+                transition: filter ease 0.3s;
+                }
+                .borrar:hover{
+                    filter: invert(25%) sepia(100%) saturate(4000%) hue-rotate(310deg) brightness(50%);
+                }
+                .editar:hover{
+                    filter: invert(40%) sepia(100%) saturate(4000%) hue-rotate(90deg);
+                }
+
+        .informacion_libro > section{
+            overflow-y: auto;
+            scrollbar-width: thin;
+            padding: 10px;
+
+            grid-area: kwrds;
+        }
+            .informacion_libro > section > h4{
+                background-color: #EFE;
+                border-radius: 5px;
+                padding: 3px 5px;
+                box-shadow: 0 0 5px #4969;
+                font-size: 14px;
+                margin: 5px;
+            }
+
+        .informacion_libro > a{
+            text-decoration: none;
+            background-color: #0db450;
+            border-radius: 10px;
+            padding: 10px 20px;
+            display: flex;
+            flex-flow: row-reverse nowrap;
+            align-items: center;
+            color: #FFF;
+            font-weight: 600;
+            gap: 15px;
+            transition: all 0.2s ease-in-out;
+            justify-self: center;
+            margin-top: 10px;
+            
+            grid-area: boton;
+        }
+        .foto_boton{
+            width: 30px;
+            height: 30px;
+            filter: invert(100%);
+        }
+            .informacion_libro > a:hover{
+                background-color: #0a8f40;
+                box-shadow: 0 0 20px #3e8e4155;
+            }
+            .informacion_libro > a:focus{
+                background-color: #278d2a;
+                box-shadow: 0 0 10px #3e8e4199;
+            }
+.paginacion{
+    margin-top: 20px;
+}
+
+#outModalBiblioteca{
+    position: fixed;
+    inset: 0;
+    background-color: #0005;
+    z-index: 5;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+#modalEliminarLibro{
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    height: fit-content;
+    width: 50%;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 6;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+#modalEliminarLibro h2{
+    color: #b60000;
+    width: 100%;
+}
+#modalEliminarLibro p{
+    margin: 20px;
+    width: 100%;
+    font-size: 17px;
+}
+#modalEliminarLibro .boton_modalEliminar{
+    padding: 5px 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+    color: #FFF;
+    font-weight: bold;
+}
+#modalEliminarLibro #cancelar_modalEliminar{
+    background-color: #0db450;
+}
+    #modalEliminarLibro #cancelar_modalEliminar:hover{
+        background-color: #0a8f40;
+    }
+
+#modalEliminarLibro #eliminar_modalEliminar{
+    background-color: #b60000;
+}
+    #modalEliminarLibro #eliminar_modalEliminar:hover{
+        background-color: #290000;
+    }
+
+@media only screen and (max-width: 768px){
+    .search{
+        font-size: 12px;
+    }
+    .lupa{
+        top: 16px;
+    }
+
+    .libro{
+        min-height: fit-content;
+        max-height: fit-content;
+        padding-bottom: 35px;
+        margin: 10px auto;
+    }
+    .libro > h6{
+        height: 28px;
+    }
+
+    .informacion_libro{
+        height: 65%;
+        padding: 10px;
+        grid-template-areas: "title title"
+                             "clasf clasf"
+                             "autor autor"
+                             "corps corps"
+                             "kwrds kwrds"
+                             "opcs boton";
+        gap: 4px;
+        grid-template-columns: 0.6fr 1fr;
+        grid-template-rows: min-content 1fr 1fr 20fr min-content 2fr;
+    }
+
+    .informacion_libro > h1{
+        font-size: 15px;
+    }
+    .informacion_libro > h3{
+        font-size: 14px;
+        text-align: right;
+    }
+    .informacion_libro > h2{
+        font-size: 12px;
+        text-align: right;
+        text-wrap: pretty;
+    }
+
+    .informacion_libro > p{
+        font-size: 13px;
+    }
+
+    .informacion_libro > section{
+        overflow-x: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        padding: 0 0 4px;
+    }
+    .informacion_libro > section h4{
+        font-size: 10px;
+        
+    }
+
+    .informacion_libro > div{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        padding-top: 10px;
+    }
+    .informacion_libro .foto-opc{
+        height: auto;
+        width: 25px;
+    }
+    .informacion_libro > a > .foto_boton{
+        height: auto;
+        width: 25px;
+    }
+}
